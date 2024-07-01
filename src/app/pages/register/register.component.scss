@@ -5,9 +5,19 @@
   justify-content: center;
   align-items: center;
   height: 100%;
+  width: 100%;
   background-color: $register-primary-color;
 }
 
-.message {
-  font-size: 30px;
+.forms-wrapper {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 3px 1fr;
+}
+
+.vertical-line {
+  height: 100%;
+  width: 100%;
+  background-color: black;
 }

@@ -9,4 +9,4 @@ import { ForbiddenComponent } from './forbidden.component';
   ],
   exports: [ForbiddenComponent]
 })
-export class ForbddenModule { }
+export class ForbiddenModule { }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
-
+  form: FormGroup = new FormGroup({
+    // name: new FormControl(''),
+    // email: new FormControl(''),
+    // password: new FormControl(''),
+  });
 }
