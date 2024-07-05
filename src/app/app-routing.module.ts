@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { ForbiddenComponent } from './pages/forbidden/forbidden.component';
-import { FakeStoreComponent } from './pages/fake-store/fake-store.component';
 import { loginGuard } from './guards/login.guard';
 import { UnauthorizedComponent } from './pages/unauthorized/unauthorized.component';
 import { RegisterComponent } from './pages/register/register.component';
@@ -16,7 +15,13 @@ const routes: Routes = [
     component: ForbiddenComponent,
     canActivate: [loginGuard],
   },
-  { path: 'fake-store', component: FakeStoreComponent },
+  {
+    path: 'fake-store',
+    loadChildren: () =>
+      import('./pages/fake-store/fake-store.module').then(
+        (m) => m.FakeStoreModule
+      ),
+  },
   { path: 'unauthorized', component: UnauthorizedComponent },
   { path: '**', component: PageNotFoundComponent },
 ];

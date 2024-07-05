@@ -1,0 +1,14 @@
+<div class="page-content">
+  <p class="message">Fake store works!</p>
+
+  <div class="store-container">
+    <app-store-product
+      *ngFor="let product of products"
+      class="store-product"
+      [id]="product.id"
+      [title]="product.title"
+      [description]="product.description"
+      [price]="product.price"
+    ></app-store-product>
+  </div>
+</div>

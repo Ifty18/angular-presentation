@@ -1,8 +1,9 @@
 @import '/src/styles/variables';
 
-.page-content-wrapper {
+.page-content {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   height: 100%;
   background-color: $fake-store-primary-color;
@@ -10,4 +11,15 @@
 
 .message {
   font-size: 30px;
+}
+
+.store-container {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+
+  .store-product {
+    border: 1px solid black;
+    padding: 16px;
+  }
 }

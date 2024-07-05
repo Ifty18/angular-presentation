@@ -1,0 +1,6 @@
+<div class="product">
+  <h2>{{ title }}</h2>
+  <p>{{ description | slice : 0 : 50 }}...</p>
+  <p>{{ price | currency }}</p>
+  <button [routerLink]="['product-details', id]">See details</button>
+</div>
