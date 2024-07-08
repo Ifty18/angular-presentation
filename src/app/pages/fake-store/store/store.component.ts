@@ -3,17 +3,19 @@ import { Product } from 'src/app/models/product.model';
 import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
-  selector: 'app-fake-store',
-  templateUrl: './fake-store.component.html',
-  styleUrls: ['./fake-store.component.scss'],
+  selector: 'app-store',
+  templateUrl: './store.component.html',
+  styleUrls: ['./store.component.scss'],
 })
-export class FakeStoreComponent implements OnInit {
+export class StoreComponent implements OnInit {
   addedProduct: Product = {} as Product;
+  products: Product[] = [];
 
   constructor(private readonly productService: ProductsService) {}
   
   ngOnInit(): void {
     this.productService.getAllProducts().subscribe((products) => {
+      this.products = products;
       console.log(products);
     });
   }

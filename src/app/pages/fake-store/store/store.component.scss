@@ -11,10 +11,21 @@
 
     .content {
       display: flex;
+
+      .message {
+        font-size: 30px;
+      }
     }
 
-    .message {
-      font-size: 30px;
+    .store-container {
+      display: flex;
+      flex-direction: row;
+      gap: 32px;
+
+      .store-product {
+        border: 1px solid black;
+        padding: 16px;
+      }
     }
   }
 }

@@ -1,11 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { FakeStoreComponent } from './fake-store.component';
+import { FakeStoreRoutingModule } from './fake-store-routing.module';
+import { ProductDetailsComponent } from './store/pages/product-details/product-details.component';
+import { StoreProductComponent } from './store/pages/store-product/store-product.component';
+import { StoreComponent } from './store/store.component';
 
 @NgModule({
-  declarations: [FakeStoreComponent],
-  imports: [CommonModule, MatButtonModule],
-  exports: [FakeStoreComponent],
+  declarations: [
+    StoreComponent,
+    StoreProductComponent,
+    ProductDetailsComponent,
+  ],
+  imports: [CommonModule, FakeStoreRoutingModule],
+  exports: [],
 })
 export class FakeStoreModule {}
