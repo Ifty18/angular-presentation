@@ -1,13 +1,20 @@
 @import '/src/styles/variables';
 
-.page-content-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  background-color: $fake-store-primary-color;
-}
+:host {
+  .page-content-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: $fake-store-primary-color;
+    flex-direction: column;
 
-.message {
-  font-size: 30px;
+    .content {
+      display: flex;
+    }
+
+    .message {
+      font-size: 30px;
+    }
+  }
 }

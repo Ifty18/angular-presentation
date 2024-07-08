@@ -1,12 +1,11 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import { FakeStoreComponent } from './fake-store.component';
 
 @NgModule({
   declarations: [FakeStoreComponent],
-  imports: [
-    CommonModule
-  ],
-  exports:[FakeStoreComponent]
+  imports: [CommonModule, MatButtonModule],
+  exports: [FakeStoreComponent],
 })
-export class FakeStoreModule { }
+export class FakeStoreModule {}

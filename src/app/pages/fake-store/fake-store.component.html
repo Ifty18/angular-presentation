@@ -1,4 +1,11 @@
 <div class="page-content-wrapper">
-  <p class="message">Fake store works!</p>
-</div>
+  <div class="content">
+    <p class="message">Fake store works!</p>
+  </div>
 
+  <div class="add-product-btn">
+    <button mat-flat-button
+            (click)="addNewProduct()">Add new product</button>
+    See added product: {{addedProduct | json}}
+  </div>
+</div>
