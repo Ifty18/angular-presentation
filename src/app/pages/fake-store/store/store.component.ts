@@ -25,7 +25,7 @@ export class StoreComponent implements OnInit {
       .addProduct({
         id: 2,
         title: 'T-shirt',
-        price: '10',
+        price: 10,
         description: 'This is a t-shirt',
         category: 'clothing',
         image: 'https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg',
