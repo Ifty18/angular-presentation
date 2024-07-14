@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { filter, map, Observable, Observer } from 'rxjs';
+import { filter, Observable, Observer } from 'rxjs';
 import { Product } from 'src/app/models/product.model';
 import { ProductsService } from 'src/app/services/products.service';
 
@@ -19,19 +19,6 @@ export class StoreComponent implements OnInit {
       this.products = products;
       console.log(products);
     });
-  }
-
-  addNewProduct(): void {
-    this.productService
-      .addProduct({
-        id: 2,
-        title: 'T-shirt',
-        price: 10,
-        description: 'This is a t-shirt',
-        category: 'clothing',
-        image: 'https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg',
-      })
-      .subscribe((response) => (this.addedProduct = response));
   }
 
   filterProducts(): void {
