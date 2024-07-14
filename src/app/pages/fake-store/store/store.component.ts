@@ -22,29 +22,22 @@ export class StoreComponent implements OnInit {
   }
 
   filterProducts(): void {
-    const customFilterObservable = Observable.create((observer:Observer<Product>) => {
-      this.products.forEach(product => {
-        observer.next(product);
-      });
-      observer.complete();
-    })
+    console.log("not implemented yet ¯\\_(ツ)_/¯")
 
-    let auxProducts:Product[] = [];
+    // const customFilterObservable = new Observable((observer:Observer<Product>) => {
+    //   // write your code here
+    // })
 
-    customFilterObservable
-      .pipe(filter((product:Product) => {
-        if (product.price <= 50) {
-          return true;
-        }
-        return false;
-      }))
-      .subscribe((product:Product) => {
-        auxProducts.push(product);
-      }, (error: Error) => {
-        console.log(error);
-      }, () => {
-        console.log("completed!");
-        this.products = auxProducts;
-      });
+    // this might be useful if you decide on sending the products one by one
+    // let auxProducts:Product[] = [];
+
+    //use the structure below to filter the products
+    // customFilterObservable
+    //   .pipe(filter( () => {
+       
+    //   }))
+    //   .subscribe({
+       
+    //   });
   }
 }
