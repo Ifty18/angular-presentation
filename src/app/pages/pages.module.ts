@@ -16,7 +16,7 @@ import { PageNotFoundModule } from './page-not-found/page-not-found.module';
     ForbiddenModule,
     LandingPageModule,
     UnauthorizedModule,
-    PageNotFoundModule,
+    PageNotFoundModule
   ],
 })
 export class PagesModule {}

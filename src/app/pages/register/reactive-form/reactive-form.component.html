@@ -17,9 +17,21 @@
         <input class="form-input" id="password" type="password" formControlName="password" placeholder="password">
         <p *ngIf="isPasswordInvalid" class="error-message">The password is required. It also must have between 6 to 20 charcters.</p>
       </div>
+
+      <!-- Add a new input field for age similar to the one above. -->
   
       <button class="submit-button">Submit</button>
   
+      <div class="values">
+          Form values: {{formValues | json}}
+      </div>
+
+      <div class="form-properties">
+          IsDirty:  <br>
+          IsTouched:  <br>
+          IsValid:  <br>
+          IsInvalid:  <br>
+      </div>
     </form>
   </div>
 </div>
