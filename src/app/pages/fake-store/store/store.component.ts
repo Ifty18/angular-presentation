@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { filter, Observable, Observer } from 'rxjs';
 import { Product } from 'src/app/models/product.model';
 import { ProductsService } from './services/products.service';
 
@@ -13,7 +12,7 @@ export class StoreComponent implements OnInit {
   products: Product[] = [];
 
   constructor(private readonly productService: ProductsService) {}
-  
+
   ngOnInit(): void {
     this.productService.getAllProducts().subscribe((products) => {
       this.products = products;
@@ -21,8 +20,14 @@ export class StoreComponent implements OnInit {
     });
   }
 
+  addProduct(): void {
+    this.productService.addProduct(this.addedProduct).subscribe((product) => {
+      console.log(product);
+    });
+  }
+
   filterProducts(): void {
-    console.log("not implemented yet ¯\\_(ツ)_/¯")
+    console.log('not implemented yet ¯\\_(ツ)_/¯');
 
     // const customFilterObservable = new Observable((observer:Observer<Product>) => {
     //   // write your code here
@@ -34,10 +39,10 @@ export class StoreComponent implements OnInit {
     //use the structure below to filter the products
     // customFilterObservable
     //   .pipe(filter( () => {
-       
+
     //   }))
     //   .subscribe({
-       
+
     //   });
   }
 }

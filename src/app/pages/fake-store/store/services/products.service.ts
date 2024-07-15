@@ -19,6 +19,26 @@ export class ProductsService {
     return this.httpClient.get<Product[]>(url);
   }
 
+  getProductById(id: number): Observable<Product> {
+    const url = `${this.endpoint}/products/${id}`;
+    return this.httpClient.get<Product>(url);
+  }
+
+  addProduct(product: Product): Observable<Product> {
+    const url = `${this.endpoint}/products`;
+    return this.httpClient.post<Product>(url, product);
+  }
+
+  updateProduct(product: Product): Observable<Product> {
+    const url = `${this.endpoint}/products/${product.id}`;
+    return this.httpClient.put<Product>(url, product);
+  }
+
+  deleteProduct(id: number): Observable<Product> {
+    const url = `${this.endpoint}/products/${id}`;
+    return this.httpClient.delete<Product>(url);
+  }
+
   getLocalProducts(): Products {
     return this.products;
   }
