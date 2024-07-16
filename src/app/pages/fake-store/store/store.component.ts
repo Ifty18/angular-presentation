@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { filter, Observable, Observer } from 'rxjs';
 import { Product } from 'src/app/models/product.model';
-import { ProductsService } from 'src/app/services/products.service';
+import { ProductsService } from './services/products.service';
 
 @Component({
   selector: 'app-store',
@@ -13,7 +12,7 @@ export class StoreComponent implements OnInit {
   products: Product[] = [];
 
   constructor(private readonly productService: ProductsService) {}
-  
+
   ngOnInit(): void {
     this.productService.getAllProducts().subscribe((products) => {
       this.products = products;
@@ -21,30 +20,29 @@ export class StoreComponent implements OnInit {
     });
   }
 
+  addProduct(): void {
+    this.productService.addProduct(this.addedProduct).subscribe((product) => {
+      console.log(product);
+    });
+  }
+
   filterProducts(): void {
-    const customFilterObservable = Observable.create((observer:Observer<Product>) => {
-      this.products.forEach(product => {
-        observer.next(product);
-      });
-      observer.complete();
-    })
+    console.log('not implemented yet ¯\\_(ツ)_/¯');
 
-    let auxProducts:Product[] = [];
+    // const customFilterObservable = new Observable((observer:Observer<Product>) => {
+    //   // write your code here
+    // })
 
-    customFilterObservable
-      .pipe(filter((product:Product) => {
-        if (product.price <= 50) {
-          return true;
-        }
-        return false;
-      }))
-      .subscribe((product:Product) => {
-        auxProducts.push(product);
-      }, (error: Error) => {
-        console.log(error);
-      }, () => {
-        console.log("completed!");
-        this.products = auxProducts;
-      });
+    // this might be useful if you decide on sending the products one by one
+    // let auxProducts:Product[] = [];
+
+    //use the structure below to filter the products
+    // customFilterObservable
+    //   .pipe(filter( () => {
+
+    //   }))
+    //   .subscribe({
+
+    //   });
   }
 }

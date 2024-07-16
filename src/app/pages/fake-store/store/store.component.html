@@ -12,7 +12,8 @@
   <div class="add-product-btn">
     <button mat-raised-button
             color="accent"
-            class="add-btn">Add new product</button>
+            class="add-btn"
+            (click)="addProduct()">Add new product</button>
     See added product: {{addedProduct | json}}
   </div>
 
