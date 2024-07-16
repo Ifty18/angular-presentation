@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 
 function mustContainCentricEmailDomain (control: AbstractControl) {
@@ -8,12 +8,41 @@ function mustContainCentricEmailDomain (control: AbstractControl) {
   return {doesNotContainCentricEmailDomain: true};
 }
 
+function mustContainAtLeastOneSpecialCharacter(control: AbstractControl) {
+  const specialCharacter = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+', '='];
+  if(control.value.includes(specialCharacter)) {
+    return null;
+  }
+  return {doesNotContainSpecialCharacter: true};
+
+}
+
 @Component({
   selector: 'app-reactive-form',
   templateUrl: './reactive-form.component.html',
   styleUrls: ['./reactive-form.component.scss']
 })
-export class ReactiveFormComponent {
+export class ReactiveFormComponent implements OnInit {
+  formValues: unknown;
+
+  ngOnInit() {
+    //Add a listener to the valueChanges event of the password control 
+    //and display the value on the console.
+    this.form.controls.password.valueChanges.subscribe((value) => {
+      console.log(value);
+    });
+
+    //Add a listener to the valueChanges event of the name control and use the value 
+    //to set the email control value to the name value followed by "@centric.com".
+    
+    this.form.controls.name.valueChanges.subscribe((value) => {
+      if (value) {
+        const email = value + "@centric.com";
+        this.form.controls.email.setValue(email);
+      }
+    });
+  }
+
   form = new FormGroup({
     name: new FormControl('', {
       validators: [
@@ -30,7 +59,15 @@ export class ReactiveFormComponent {
       validators: [
         Validators.required,
         Validators.minLength(6),
-        Validators.maxLength(20)
+        Validators.maxLength(20),
+        mustContainAtLeastOneSpecialCharacter
+      ]
+    }),
+    age: new FormControl('', {
+      validators: [
+        Validators.min(18),
+        Validators.max(100),
+        Validators.required
       ]
     })
   });
@@ -56,9 +93,16 @@ export class ReactiveFormComponent {
     );
   }
 
+  get isAgeInvalid() {
+    return (
+      this.form.controls.age.touched &&
+      this.form.controls.age.invalid
+    );
+  }
+
   onSubmit() {
     if(!this.isEmailInvalid && !this.isNameInvalid && !this.isPasswordInvalid) {
-      console.log(this.form);
+      this.formValues = this.form.value;
     }
   }
 }
