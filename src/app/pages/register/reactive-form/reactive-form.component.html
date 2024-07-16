@@ -15,10 +15,14 @@
   
       <div class="form-input-wrapper">
         <input class="form-input" id="password" type="password" formControlName="password" placeholder="password">
-        <p *ngIf="isPasswordInvalid" class="error-message">The password is required. It also must have between 6 to 20 charcters.</p>
+        <p *ngIf="isPasswordInvalid" class="error-message">The password is required. It also must have between 6 to 20 charcters and one special character.</p>
       </div>
 
       <!-- Add a new input field for age similar to the one above. -->
+      <div class="form-input-wrapper">
+        <input class="form-input" id="age" type="number" formControlName="age" placeholder="age">
+        <p *ngIf="isAgeInvalid" class="error-message">The age is required. It also must be between 18 and 100.</p>
+      </div>
   
       <button class="submit-button">Submit</button>
   
@@ -27,10 +31,10 @@
       </div>
 
       <div class="form-properties">
-          IsDirty:  <br>
-          IsTouched:  <br>
-          IsValid:  <br>
-          IsInvalid:  <br>
+          IsDirty:  {{form.dirty}} <br>
+          IsTouched:  {{form.touched}} <br>
+          IsValid: {{form.valid}} <br>
+          IsInvalid: {{form.invalid}} <br>
       </div>
     </form>
   </div>

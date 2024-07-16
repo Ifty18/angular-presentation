@@ -8,6 +8,15 @@ function mustContainCentricEmailDomain (control: AbstractControl) {
   return {doesNotContainCentricEmailDomain: true};
 }
 
+function mustContainAtLeastOneSpecialCharacter(control: AbstractControl) {
+  const specialCharacter = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+', '='];
+  if(control.value.includes(specialCharacter)) {
+    return null;
+  }
+  return {doesNotContainSpecialCharacter: true};
+
+}
+
 @Component({
   selector: 'app-reactive-form',
   templateUrl: './reactive-form.component.html',
@@ -19,9 +28,19 @@ export class ReactiveFormComponent implements OnInit {
   ngOnInit() {
     //Add a listener to the valueChanges event of the password control 
     //and display the value on the console.
+    this.form.controls.password.valueChanges.subscribe((value) => {
+      console.log(value);
+    });
 
     //Add a listener to the valueChanges event of the name control and use the value 
     //to set the email control value to the name value followed by "@centric.com".
+    
+    this.form.controls.name.valueChanges.subscribe((value) => {
+      if (value) {
+        const email = value + "@centric.com";
+        this.form.controls.email.setValue(email);
+      }
+    });
   }
 
   form = new FormGroup({
@@ -40,7 +59,15 @@ export class ReactiveFormComponent implements OnInit {
       validators: [
         Validators.required,
         Validators.minLength(6),
-        Validators.maxLength(20)
+        Validators.maxLength(20),
+        mustContainAtLeastOneSpecialCharacter
+      ]
+    }),
+    age: new FormControl('', {
+      validators: [
+        Validators.min(18),
+        Validators.max(100),
+        Validators.required
       ]
     })
   });
@@ -63,6 +90,13 @@ export class ReactiveFormComponent implements OnInit {
     return (
       this.form.controls.password.touched &&
       this.form.controls.password.invalid
+    );
+  }
+
+  get isAgeInvalid() {
+    return (
+      this.form.controls.age.touched &&
+      this.form.controls.age.invalid
     );
   }
 
