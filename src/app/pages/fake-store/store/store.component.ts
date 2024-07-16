@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product.model';
 import { ProductsService } from './services/products.service';
+import { filter, Observable, Observer } from 'rxjs';
 
 @Component({
   selector: 'app-store',
@@ -27,22 +28,33 @@ export class StoreComponent implements OnInit {
   }
 
   filterProducts(): void {
-    console.log('not implemented yet ¯\\_(ツ)_/¯');
+    const customFilterObservable = new Observable((observer:Observer<Product>) => {
+      this.products.forEach(product => {
+        observer.next(product);
+      });
+      observer.complete();
+    })
 
-    // const customFilterObservable = new Observable((observer:Observer<Product>) => {
-    //   // write your code here
-    // })
+    let auxProducts:Product[] = [];
 
-    // this might be useful if you decide on sending the products one by one
-    // let auxProducts:Product[] = [];
-
-    //use the structure below to filter the products
-    // customFilterObservable
-    //   .pipe(filter( () => {
-
-    //   }))
-    //   .subscribe({
-
-    //   });
+    customFilterObservable
+      .pipe(filter((product:Product) => {
+        if (product.price <= 50) {
+          return true;
+        }
+        return false;
+      }))
+      .subscribe({
+        next: (product:Product) => {
+          auxProducts.push(product);
+        },
+        error: (error: Error) => {
+          console.log(error);
+        },
+        complete: () => {
+          console.log("completed!");
+          this.products = auxProducts;
+        }
+      });
   }
 }

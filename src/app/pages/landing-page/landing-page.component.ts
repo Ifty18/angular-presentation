@@ -1,33 +1,57 @@
 import { Component, OnDestroy } from '@angular/core';
-import { Observable, Observer, Subscription } from 'rxjs';
+import { filter, map, Observable, Observer, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.scss']
 })
-export class LandingPageComponent {
+export class LandingPageComponent implements OnDestroy{
   myFirstSubscription: Subscription;
 
   constructor() { 
     const customIntervalObservable = new Observable((observer:Observer<number>) => {
-      // write the Observable logic here
+      let count = 0;
+      setInterval(() => {
+        observer.next(count);
+        if (count === 3) {
+          observer.error(new Error('Error! Count is now 3!'));
+        }
+        if (count === 5) {
+          observer.complete();
+        }
+        count++;
+      }, 1000);
     });
 
-    this.myFirstSubscription = customIntervalObservable.subscribe({
-      next: (data: number) => {
-        // output the data
+    this.myFirstSubscription = customIntervalObservable
+    .pipe(
+      filter((value) => {
+      if (value % 2 == 0) {
+        return true;
+      }
+      return false;
+      }),
+
+      map((data: number) => {
+        return `The number is ${data}`;
+      }
+    ))
+    .subscribe({
+      next: (data: string) => {
+        console.log(data);
       },
       error: (error: Error) => {
-        // output the error
+        console.log(error);
+        // alert(error.message);
       },
       complete: () => {
-        // output "completed!"
+        console.log('completed!');
       }
     });
   }
 
-  // ngOnDestroy(): void {
-    // unsubscribe here
-  // }
+  ngOnDestroy(): void {
+    this.myFirstSubscription.unsubscribe();
+  }
 }
