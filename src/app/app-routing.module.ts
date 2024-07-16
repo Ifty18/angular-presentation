@@ -23,7 +23,8 @@ const routes: Routes = [
       ),
   },
   { path: 'unauthorized', component: UnauthorizedComponent },
-  { path: '**', component: PageNotFoundComponent },
+  { path: 'local-store', loadChildren: () => import('./pages/local-store/local-store.module').then(m => m.LocalStoreModule) },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
