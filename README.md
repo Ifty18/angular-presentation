@@ -28,9 +28,9 @@ The structure consists of 5 modules, each one targeting a different a different 
   <img src="https://raw.githubusercontent.com/Ifty18/angular-presentation/main/public/screenshots/forbidden.png" width="500"/>
 </p>
 
-4. **Fake Store**: simulates an online store that has products, a filter and the posibility of adding a product. 
-&nbsp; &nbsp; &nbsp; &nbsp; One of the goals was to exemplify the way a service works in Angular and how to call endpoints in order to manipulate data. For that we used <a href="https://fakestoreapi.com">Fake Store API</a> since it is a free solution that matched the project's needs. 
-&nbsp; &nbsp; &nbsp; &nbsp; Another goal of the course was to go through the concepts of **observables**, **subscriptions** and **pipes**. With that in mind, we made a live coding exercise with the students where they had to implement the logic of the filter button that keeps only the products that cost less than $50.
+4. **Fake Store**: simulates an online store that has products, a filter and the posibility of adding a product.\
+&nbsp; &nbsp; &nbsp; &nbsp; One of the goals was to exemplify the way a service works in Angular and how to call endpoints in order to manipulate data. For that we used <a href="https://fakestoreapi.com">Fake Store API</a> since it is a free solution that matched the project's needs.\
+&nbsp; &nbsp; &nbsp; &nbsp; Another goal of the course was to go through the concepts of **observables**, **subscriptions** and **pipes**. With that in mind, we made a live coding exercise with the students where they had to implement the logic of the filter button that keeps only the products that cost less than $50.\
 &nbsp; &nbsp; &nbsp; &nbsp; This page has one last purpose which is exemplifying the way to import and use **Angular Material** components.
 <p align="center">
   <img src="https://raw.githubusercontent.com/Ifty18/angular-presentation/main/public/screenshots/fake-store.png" width="500"/>
