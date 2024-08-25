@@ -6,14 +6,15 @@
   </a>
 </p>
 
-This project was created in order to serve as support during the **Angular&Typescript** course part of the **Summer Practice** event. It represents a good source of inspiration for those who just started their learning journey with Angular or simply need an example that contains most of the basics of this framework. Moreover, it contains the solutions to the exercises proposed during the 4-hour long course.
+&nbsp; &nbsp; This project was created in order to serve as support during the **Angular&Typescript** course part of the <a href="https://www.linkedin.com/posts/centricitsolutionsromania_studentprograms-schoolofcentric-universitypartnership-activity-7222201478600400896-Sw8L?utm_source=share&utm_medium=member_desktop">**Summer Practice**</a> event. It represents a good source of inspiration for those who just started their learning journey with Angular or simply need an example that contains most of the basics of this framework.\
+&nbsp; &nbsp; Moreover, it contains the solutions to the exercises proposed during the session. The course was presented in front of 20 students from the <a href="https://ac.tuiasi.ro">University of Automation and Computers</a> and lasted for 4 hours.
 
 
 
 ## Project Overview
 The structure consists of 5 modules, each one targeting a different a different topic:
 
-1. **Register**: has as goal to be an example of how to create a form in Angular and also to emphasize the difference between implementing a **Reactive form** and a **Template-driven form**.
+1. **Register**: is an example of how to create a form in Angular and also to emphasize the difference between implementing a **Reactive form** and a **Template-driven form**.
 <p align="center">
   <img src="https://raw.githubusercontent.com/Ifty18/angular-presentation/main/public/screenshots/register.png" width="500"/>
 </p>
@@ -29,9 +30,9 @@ The structure consists of 5 modules, each one targeting a different a different 
 </p>
 
 4. **Fake Store**: simulates an online store that has products, a filter and the posibility of adding a product.\
-&nbsp; &nbsp; &nbsp; &nbsp; One of the goals was to exemplify the way a service works in Angular and how to call endpoints in order to manipulate data. For that we used <a href="https://fakestoreapi.com">Fake Store API</a> since it is a free solution that matched the project's needs.\
-&nbsp; &nbsp; &nbsp; &nbsp; Another goal of the course was to go through the concepts of **observables**, **subscriptions** and **pipes**. With that in mind, we made a live coding exercise with the students where they had to implement the logic of the filter button that keeps only the products that cost less than $50.\
-&nbsp; &nbsp; &nbsp; &nbsp; This page has one last purpose which is exemplifying the way to import and use **Angular Material** components.
+&nbsp; &nbsp; One of the goals was to exemplify the way a service works in Angular and how to call endpoints in order to manipulate data. For that we used <a href="https://fakestoreapi.com">Fake Store API</a> since it is a free solution that matched the project's needs.\
+&nbsp; &nbsp; Another goal of the course was to go through the concepts of **observables**, **subscriptions** and **pipes**. With that in mind, we made a live coding exercise with the students where they had to implement the logic of the filter button that keeps only the products that cost less than $50.\
+&nbsp; &nbsp; This page has one last purpose which is exemplifying the way to import and use **Angular Material** components.
 <p align="center">
   <img src="https://raw.githubusercontent.com/Ifty18/angular-presentation/main/public/screenshots/fake-store.png" width="500"/>
 </p>
